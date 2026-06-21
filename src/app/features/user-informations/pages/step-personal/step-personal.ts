@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CurriculumFormStore } from '../../../../core/services/curriculum-form-store';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -11,7 +11,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class StepPersonal {
   readonly _curriculumFormStore = inject(CurriculumFormStore);
 
+  private readonly _router = inject(Router);
+
   ngOnInit() {}
 
-  logPersonal() {}
+  goToProfessional() {
+    this._router.navigate(['/profesional']);
+  }
 }
