@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { CurriculumFormStore } from '../../../../core/services/curriculum-form-store';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-step-personal',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './step-personal.html',
 })
 export class StepPersonal {
