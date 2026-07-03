@@ -19,6 +19,8 @@
         placeholder="dev@rocketseat.com"
         class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors"
         formControlName="email"
+        appInputValidation
+        errorMessage="O campo E-mail é obrigatório"
       />
     </div>
 
@@ -29,6 +31,8 @@
         placeholder="25"
         class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors"
         formControlName="age"
+        appInputValidation
+        errorMessage="O campo Idade é obrigatório"
       />
     </div>
 
@@ -39,6 +43,8 @@
         placeholder="Rua, Número, Bairro"
         class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors"
         formControlName="address"
+        appInputValidation
+        errorMessage="O campo Endereço é obrigatório"
       />
     </div>
 
@@ -48,6 +54,8 @@
         <select
           class="w-full appearance-none bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-200 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors cursor-pointer"
           formControlName="state"
+          appInputValidation
+          errorMessage="O campo Estado é obrigatório"
         >
           <option disabled selected>Selecione</option>
           @for(state of statesList(); track state.name) {
@@ -78,6 +86,8 @@
         <select
           class="w-full appearance-none bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-200 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors cursor-pointer"
           formControlName="city"
+          appInputValidation
+          errorMessage="O campo Cidade é obrigatório"
         >
           <option disabled selected>Selecione</option>
           @for(city of citiesList(); track city) {
