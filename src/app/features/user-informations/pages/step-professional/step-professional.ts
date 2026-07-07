@@ -1,3 +1,4 @@
+import { InputValidationDirective } from './../../../../shared/directives/input-validation-directive';
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CurriculumFormStore } from '../../../../core/services/curriculum-form-store';
@@ -5,7 +6,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 @Component({
   selector: 'app-step-professional',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, InputValidationDirective],
   templateUrl: './step-professional.html',
 })
 export class StepProfessional {
