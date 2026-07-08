@@ -1,8 +1,10 @@
 import { InputValidationDirective } from './../../../../shared/directives/input-validation-directive';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CurriculumFormStore } from '../../../../core/services/curriculum-form-store';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-step-professional',
@@ -11,6 +13,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class StepProfessional {
   readonly _curriculumFormStore = inject(CurriculumFormStore);
+
+  professionalArrayControls = toSignal(
+    this._curriculumFormStore.professionalFormArray.valueChanges.pipe(
+      map(() => this._curriculumFormStore.professionalFormArray.controls)
+    ), {
+      initialValue: this._curriculumFormStore.professionalFormArray.controls,
+    }
+  );
 
   addExperience() {
     this._curriculumFormStore.professionalFormArray.push(
