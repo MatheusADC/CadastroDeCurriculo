@@ -1,4 +1,4 @@
-import { DestroyRef, Directive, ElementRef, HostListener, inject, Input, Renderer2 } from "@angular/core";
+import { DestroyRef, Directive, ElementRef, HostListener, inject, Input, Renderer2, SimpleChanges } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { NgControl } from "@angular/forms";
 
@@ -21,6 +21,12 @@ export class InputValidationDirective {
     ).subscribe(() => {
       this.updateStatus();
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['errorMessage'] && this.errorElement) {
+      this._renderer2.setProperty(this.errorElement, 'textContent', this.errorMessage);
+    }
   }
 
   @HostListener('blur')
